@@ -94,7 +94,7 @@ const App = () => {
           )}
         </div>
 
-        <div className="mt-4 flex flex-col gap-5 h-[260px] py-3 rounded-md overflow-y-auto">
+        <div className="mt-4 flex flex-col gap-4 h-[260px] bg-orange-400 px-2 py-3 rounded-md overflow-y-auto">
           {reversedMap.map((value) => {
             return (
               <div
