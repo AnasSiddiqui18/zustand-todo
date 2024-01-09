@@ -17,10 +17,12 @@ const App = () => {
     // Animate each card when it is added
     const newTodoId = todos[todos.length - 1]?.id;
 
-    if (newTodoId && cardRefs.current[newTodoId]) {
+    const divToAnimate = cardRefs.current[newTodoId];
+
+    if (newTodoId && divToAnimate) {
       const tl = gsap.timeline();
       tl.fromTo(
-        cardRefs.current[newTodoId],
+        divToAnimate,
         {
           y: 50,
           opacity: 0,
