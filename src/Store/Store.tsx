@@ -17,6 +17,7 @@ type CounterStore = {
 export const useCounterStore = create<CounterStore>((set) => ({
   todos: [{ text: "Buy a new book", id: uuid() }],
   addTodo: (todo) => set((state) => ({ todos: [...state.todos, todo] })),
+  
   deleteTodo: (id) =>
     set((state) => ({
       todos: state.todos.filter((todo) => todo.id !== id),
