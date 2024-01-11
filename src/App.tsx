@@ -1,11 +1,10 @@
 import { useState, useRef, useEffect } from "react";
-import { useCounterStore } from "./Store/Store";
+import { useTodoStore } from "./Store/Store";
 import { v4 as uuid } from "uuid";
 import gsap from "gsap";
 
 const App = () => {
-  const { addTodo, todos, deleteTodo, updateTodo, clearTodo } =
-    useCounterStore();
+  const { addTodo, todos, deleteTodo, updateTodo, clearTodo } = useTodoStore();
   const [text, setText] = useState("");
   const [updatemode, setUpdateMode] = useState(false);
   const [updatingTodoId, setUpdatingTodoId] = useState("");

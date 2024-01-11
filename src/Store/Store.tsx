@@ -7,7 +7,7 @@ type Todo = {
   id: string;
 };
 
-type CounterStore = {
+type TodoStore = {
   todos: Todo[];
   addTodo: (todo: Todo) => void;
   deleteTodo: (id: string) => void;
@@ -15,7 +15,7 @@ type CounterStore = {
   clearTodo: () => void;
 };
 
-export const useCounterStore = create<CounterStore>((set) => ({
+export const useTodoStore = create<TodoStore>((set) => ({
   todos: [{ text: "Buy a new book", id: uuid() }],
   addTodo: (todo) => set((state) => ({ todos: [...state.todos, todo] })),
 
