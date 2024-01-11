@@ -4,7 +4,8 @@ import { v4 as uuid } from "uuid";
 import gsap from "gsap";
 
 const App = () => {
-  const { addTodo, todos, deleteTodo, updateTodo } = useCounterStore();
+  const { addTodo, todos, deleteTodo, updateTodo, clearTodo } =
+    useCounterStore();
   const [text, setText] = useState("");
   const [updatemode, setUpdateMode] = useState(false);
   const [updatingTodoId, setUpdatingTodoId] = useState("");
@@ -60,6 +61,10 @@ const App = () => {
     setUpdatingTodoId(id);
   };
 
+  const handleClearTodos = () => {
+    clearTodo();
+  };
+
   const reversedMap = todos.slice().reverse();
 
   return (
@@ -94,6 +99,13 @@ const App = () => {
               Update
             </button>
           )}
+
+          <button
+            className="bg-red-500 py-[.5] text-white px-2 rounded-md w-[65px]"
+            onClick={handleClearTodos}
+          >
+            Clear
+          </button>
         </div>
 
         <div className="mt-4 flex flex-col gap-4 h-[260px] bg-orange-400 px-2 py-3 rounded-md overflow-y-auto">
