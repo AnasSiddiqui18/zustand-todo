@@ -64,7 +64,8 @@ const App = () => {
     clearTodo();
   };
 
-  const reversedMap = todos.slice().reverse();
+  // const reversedMap = todos.slice().reverse();
+  // console.log(reversedMap);
 
   return (
     <div className="min-h-screen bg-gray-600 flex justify-center items-center ">
@@ -108,36 +109,38 @@ const App = () => {
         </div>
 
         <div className="mt-4 flex flex-col gap-4 h-[260px] bg-orange-400 px-2 py-3 rounded-md overflow-y-auto">
-          {reversedMap.map((value) => {
-            return (
-              <div
-                key={value.id}
-                className="flex justify-between bg-white px-2 min-h-[43px] items-center rounded-md card"
-                ref={(element) => {
-                  console.log(element);
-                  cardRefs.current[value.id] = element; //? element is representing the html element means the particular div on which the ref is attached.
-                }}
-              >
-                <h1 className="font-semibold">{value.text}</h1>
+          {todos
+            .map((value) => {
+              return (
+                <div
+                  key={value.id}
+                  className="flex justify-between bg-white px-2 min-h-[43px] items-center rounded-md card"
+                  ref={(element) => {
+                    console.log(element);
+                    cardRefs.current[value.id] = element; //? element is representing the html element means the particular div on which the ref is attached.
+                  }}
+                >
+                  <h1 className="font-semibold">{value.text}</h1>
 
-                <div className="flex gap-2">
-                  <button
-                    className="bg-green-500 text-white px-2 rounded-md"
-                    onClick={() => handleUpdateTodo(value.id, value.text)}
-                  >
-                    ✏️
-                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      className="bg-green-500 text-white px-2 rounded-md"
+                      onClick={() => handleUpdateTodo(value.id, value.text)}
+                    >
+                      ✏️
+                    </button>
 
-                  <button
-                    className="bg-red-500 text-white  px-2 rounded-md"
-                    onClick={() => handleDeleteTodo(value.id)}
-                  >
-                    🗑️
-                  </button>
+                    <button
+                      className="bg-red-500 text-white  px-2 rounded-md"
+                      onClick={() => handleDeleteTodo(value.id)}
+                    >
+                      🗑️
+                    </button>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+            .reverse()}
         </div>
       </div>
     </div>
