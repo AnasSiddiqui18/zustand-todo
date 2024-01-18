@@ -64,9 +64,6 @@ const App = () => {
     clearTodo();
   };
 
-  // const reversedMap = todos.slice().reverse();
-  // console.log(reversedMap);
-
   return (
     <div className="min-h-screen bg-gray-600 flex justify-center items-center ">
       <div className="h-[450px] w-[350px] bg-gray-800 rounded-md px-5">
